@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicação Web com Chatbot para o ISPGaya</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        input[type="text"], input[type="password"], input[type="submit"] {
+            margin: 10px;
+            padding: 10px;
+            width: 80%;
+            font-size: 16px;
+        }
+        .pdf-list {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+        }
+        .pdf-list li {
+            margin-bottom: 10px;
+        }
+        .pdf-list li a {
+            text-decoration: none;
+            background-color: #f0f0f0;
+            padding: 10px;
+            display: inline-block;
+            border-radius: 5px;
+        }
+        .pdf-list li a:hover {
+            background-color: #e0e0e0;
+        }
+        #descricao {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Aplicação Web com Chatbot para o ISPGaya</h2>
+    <form id="loginForm" onsubmit="return validateLogin()">
+        <input type="text" id="username" name="username" placeholder="Username" required><br>
+        <input type="password" id="password" name="password" placeholder="Password" required><br>
+        <input type="submit" value="Login">
+    </form>
+
+    <div id="descricao" style="display: none;">
+        <p>Este projeto consistiu na criação de uma aplicação web com um chatbot para o ISPGaya. Foram utilizadas técnicas de web scraping que extraíram os dados do site do ISPGaya e os armazenaram num ficheiro JSON. O chatbot foi programado para responder a perguntas de utilizadores com base nesses dados, melhorando a acessibilidade e a experincia de procura de informações sobre a instituição. </p>
+        <p>Abaixo estão disponíveis para download os ficheiros que condimentam o desenvolvimento deste projeto:</p>
+    </div>
+
+    <ul class="pdf-list" id="pdfList" style="display: none;">
+        <li><a href="AcordoConfidencialidade.pdf" download>Acordo de Confidencialidade</a></li>
+        <li><a href="Ata de Reuniao_001.pdf" download>Ata de Reunião 001</a></li>
+        <li><a href="Ata de Reuniao_002.pdf" download>Ata de Reunião 002</a></li>
+        <li><a href="Ata de Reuniao_003.pdf" download>Ata de Reunião 003</a></li>
+        <li><a href="Protocolo-ISPGaya-Exterior.pdf" download>Protocolo ISPGaya Exterior</a></li>
+        <li><a href="Regulamento-ISPGaya-Exterior.pdf" download>Regulamento ISPGaya Exterior</a></li>
+        <li><a href="relatório_projeto_final_2019102163.pdf" download>Relatório Final</a></li>
+        
+    </ul>
+
+    <script>
+        function validateLogin() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Verificar as credenciais
+            if (username === "admin" && password === "password123") {
+                alert("Login bem-sucedido!");
+                document.getElementById("loginForm").style.display = "none"; // Esconder o formulário de login
+                document.getElementById("descricao").style.display = "block"; // Mostrar a descrição
+                document.getElementById("pdfList").style.display = "block"; // Mostrar a lista de PDFs
+                return false; // Evitar o envio do formulário
+            } else {
+                alert("Credenciais inválidas. Tente novamente.");
+                return false; // Evitar o envio do formulário
+            }
+        }
+    </script>
+</body>
+</html>
